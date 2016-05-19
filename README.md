@@ -13,13 +13,8 @@ Install:
 ### Run composer
 
 `cd symfony_user && composer install`
-
-### Create Your Database Config
-
-`cd app/config`
-`cp parameters.yml.dist parameters.dist`
-
-Update the database setting in parameters.yml to match your database name and server.
+ 
+Answer the questions about you database config when prompted.
 
 ### Create your database if needed
 
@@ -41,30 +36,22 @@ Update the database setting in parameters.yml to match your database name and se
 What's it do?
 --------------
   
-  * You can log in with username `admin` and password `admin`.  You will land on a welcome page, where you can click a button to be taken to a page where you can change your name and change your password.
+  * You can log in with username `admin` and password `admin`.  You will land on a welcome page where you can click a button to be taken to another page where you can change your name and change your password.
 
 ### Run the CSV Import Command
 
+From the base directory of the repo run:
 
+`app/console import:user:csv ./user_data.csv`
 
-
-
-What else can it do?
+What's it do?
 --------------------
   
-  * You can change the hashtag by appending a different one to the URL! Try `/hashtag/JustinBieber`
-
-  * Try a bogus hashtag like `/hashtag/Justingngnght876Bieber` and you'll get a friendly error message.
-
-  * There's also a handy little form that lets you select a date range to search within.
+  * This Symfony Console Command reads a csv file and persists the entries to your database.
 
 What doesn't it do?
 -------------------
 
-  * Pagination.  This is just a demo.  I may add pagination in the future.
-
-  * There should be a bit of form validation but I haven't done that yet.
-
-  * Old IE support is not there.  
+  * Print informative messages, validation and extensive error handling.  This I would add to a real app, but haven't here.
   
 
