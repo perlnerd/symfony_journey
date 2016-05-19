@@ -1,7 +1,7 @@
 Symfony User Exercise
 =====================
 
-Welcome to the Symfony User Exercise - An example of an application developed from the ground up using Symfony 2.8 and Bootstrap 3.3.6.  
+Welcome to the Symfony User Exercise - An example of an application developed from the ground up using Symfony 2.7 and Bootstrap 3.3.6.  
 
 Install:
 --------
