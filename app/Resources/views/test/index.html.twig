@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Learn :: User Journey by ClintG in Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} 
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <img src="/images/test_logo.png" class="img-responsive" />
+        </div>
+    </div> 
+
+    <div class="row">
+
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+		    <div class='testMessage'>
+                <h3>Welcome to the Test Centre</h3>
+
+                <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis dui non dolor congue, at imperdiet nisi pharetra. Maecenas ultricies bibendum justo sit amet cursus. Nam tincidunt, libero in euismod feugiat, neque metus ultricies sapien.</blockquote>
+
+                <h4>1 + 1 = 2, and the Dress is blue!</h4>
+    		    <a href="{{ path('test') }}?complete=y" class="btn btn-success">I hereby submit my test.</a>
+            </div>
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+          <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extrajavascripts %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    {% for flash_message in app.session.flashBag.get('notice') %}
+        var notice={% autoescape false %}'{{ flash_message }}'{% endautoescape %};
+    {% endfor %}
+    $( "div.testMessage" ).replaceWith( notice );
+});
+</script>
+{% endblock %}

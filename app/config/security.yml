@@ -1,7 +1,8 @@
 security:
     access_control:
     - { path: ^/auth, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/, roles: ROLE_USER }
+    - { path: ^/(shop|sign-up), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
 
     encoders:
         AppBundle\Entity\UserAuth:
@@ -11,7 +12,7 @@ security:
         auth_db_provider:
             entity:
                 class:    AppBundle:UserAuth
-                property: username
+                property: auEmailAddress
 
     firewalls:
         main:
@@ -21,7 +22,7 @@ security:
                 login_path:                     /auth
                 check_path:                     /auth
                 always_use_default_target_path: false
-                default_target_path:            /home/welcome
+                default_target_path:            /learn
                 target_path_parameter:          _target_path
             logout:
                 path:   /logout

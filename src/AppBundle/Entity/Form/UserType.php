@@ -11,14 +11,20 @@ class UserType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('auFirstName', 'text', array('label' => 'First Name'))
-            ->add('auLastName', 'text', array('label' => 'Last Name'))
-            ->add('save', 'submit');
+        $builder->add('auEmailAddress', 'email', array('label' => 'Email Address'))
+            ->add('password', 'repeated', array(
+                'type' => 'password',
+                'invalid_message' => 'The password fields must match.',
+                'options' => array('attr' => array('class' => 'password-field')),
+                'required' => true,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
+            ))->add('Register', 'submit');
     }
 
     public function getName()
     {
-        return 'app_user_edit';
+        return 'app_user_register';
     }
 
     public function configureOptions(OptionsResolver $resolver)
