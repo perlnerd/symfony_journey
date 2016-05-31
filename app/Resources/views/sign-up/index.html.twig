@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Sign Up :: User Journey by ClintG in Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} 
+{% endblock %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <img src="/images/test_logo.png" class="img-responsive" />
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+		    <h3>Thank-you for your purchase.  You must create an account before you can access the learning material.</h3> (Have an account already?  <a href='/auth?target=learn'>Sign In</a>)
+		    {{ form_start(form) }}
+			    {{ form_row(form.auEmailAddress) }}
+			    {{ form_row(form.password.first) }}
+			    {{ form_row(form.password.second) }}
+			{{ form_end(form) }}
+
+		</div>
+	</div>
+	<div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+          <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}

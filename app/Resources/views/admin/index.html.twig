@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Admin :: User Journey by ClintG in Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} 
+{% endblock %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <img src="/images/test_logo.png" class="img-responsive" />
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+
+        <h3>Search by email address</h3>
+            {{ form_start(form) }}
+                {{ form_row(form.email) }}
+            {{ form_end(form) }}
+
+        <hr>
+        <h3>Overview Report for {{ date }}</h3>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>       
+        {% for record in result %}
+            <tr>
+                <td>{{ record.eventType }}</td><td>{{ record.total }}</td>
+            </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+        
+		</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+          <hr>
+        </div>
+    </div>
+  
+	</div>
+</div>
+{% endblock %}

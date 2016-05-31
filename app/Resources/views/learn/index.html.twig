@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+Learn :: User Journey by ClintG in Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} 
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <img src="/images/test_logo.png" class="img-responsive" />
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+		    <h3>Welcome to the Info Centre</h3>
+
+            <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis dui non dolor congue, at imperdiet nisi pharetra. Maecenas ultricies bibendum justo sit amet cursus. Nam tincidunt, libero in euismod feugiat, neque metus ultricies sapien.</blockquote>
+
+        <h4>I learned Stuff?!?! Yay!</h4>
+		    <a href="{{ path('test') }}" class="btn btn-success">Now, get tested!!</a>
+
+		</div>
+	</div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+          <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,38 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-User Thang by ClintG in Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} 
+Index :: User Journey by ClintG in Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} 
 {% endblock %}
 
 {% block body %}
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-        <img src="/images/tes_logo.png" class="img-responsive" />
+        <img src="/images/test_logo.png" class="img-responsive" />
+        </div>
+    </div> 
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+
+        <h3>Welcome to a contrived user journey
+        {% if firstName is defined %}
+          , {{ firstName }}
+        {% endif %}
+        .  I hope you enjoy it.</h3>
+
+        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lobortis dui non dolor congue, at imperdiet nisi pharetra. Maecenas ultricies bibendum justo sit amet cursus. Nam tincidunt, libero in euismod feugiat, neque metus ultricies sapien, eget maximus mauris leo in neque. Sed volutpat tempus quam malesuada euismod. Mauris eu purus elit. Donec egestas, lacus ut imperdiet maximus, est magna feugiat est.</blockquote>
+		    
+        <h4>You can click below to go to the 'Shop' page or use the links in the nav-bar to go rogue</h4>
+		    <a href="{{ path('shop') }}" class="btn btn-success">Lets Shop!</a>
+
+		  </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+          <hr>
         </div>
     </div>
-    Default
+  
+	</div>
 </div>
 {% endblock %}
