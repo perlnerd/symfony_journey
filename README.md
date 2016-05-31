@@ -1,29 +1,28 @@
-Symfony User Exercise
+Symfony Journey Exercise
 =====================
 
-Welcome to the Symfony User Exercise - An example of an application developed from the ground up using Symfony 2.7 and Bootstrap 3.3.6.  
+Welcome to the Symfony Journey Exercise - An example of an application developed from the ground up using Symfony 2.7 and Bootstrap 3.3.6.  
 
 Install:
 --------
 
 ### Clone this repo to the location of your choice:
 
-`git clone git@github.com:perlnerd/symfony_user.git`
+`git clone git@github.com:perlnerd/symfony_journey.git`
 
 ### Run composer
 
-`cd symfony_user && composer install`
+`cd symfony_journey && composer install`
  
 Answer the questions about you database config when prompted.
 
 ### Create your database if needed
 
-`mysql -u root -e 'create database symfony'`
+`mysql -u root -e 'create database symfony_journey'`
 
-### Import the database schema
+### Create the database schema
 
-`cd ../../`
-`mysql -u root < symfony_user_dump.sql`
+`php app/console doctrine:schema:update --force`
 
 ### Run a webserver and access the web app from your web browser.
 
@@ -36,22 +35,19 @@ Answer the questions about you database config when prompted.
 What's it do?
 --------------
   
-  * You can log in with username `admin` and password `admin`.  You will land on a welcome page where you can click a button to be taken to another page where you can change your name and change your password.
+  * You will land on a welcome page where you can click a button to be taken to another page where you can 'buy' a product.  You will then be asked to create a username and password.   From there you will be taken to the 'learn' page, and from there you'll take a 'test'.  At the end you will have your license (to be awesome?  Dunno.)
 
-### Run the CSV Import Command
+  * Click on 'Logout' on the top right, and go through the process a few more times.  Complete the process, don't complete the process, etc.
 
-From the base directory of the repo run:
+  * now go to `/admin`.  You'll see a summary of todays user events.
 
-`app/console import:user:csv ./user_data.csv`
-
-What's it do?
---------------------
-  
-  * This Symfony Console Command reads a csv file and persists the entries to your database.
+  * From there you can search for the events making up the journey of a specific user.  Enter one of the addresses you registered with to see that user's journey.
 
 What doesn't it do?
 -------------------
 
-  * Print informative messages, validation and extensive error handling.  This I would add to a real app, but haven't here.
+  * Confirm registrations via email, strict form validations, much beyond jumping from page to page and logging the jumps.
+
+  Have fun!
   
 
