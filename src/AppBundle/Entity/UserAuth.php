@@ -3,18 +3,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * UserAuth
  *
  * @ORM\Table("user_auth")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserAuthRepository")
- * @UniqueEntity("auEmailAddress")
  */
-class UserAuth implements UserInterface, \Serializable
+class UserAuth implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var integer
@@ -27,16 +25,40 @@ class UserAuth implements UserInterface, \Serializable
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="ua_first_name", type="string", length=30)
+     */
+    private $auFirstName;
+
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="ua_last_name", type="string", length=30)
+     */
+    private $auLastName;
+
+    /**
+     * @var string
      *
      * @ORM\Column(name="ua_email_address", type="string", length=60, unique=true)
      */
     private $auEmailAddress;
 
     /**
+     * @ORM\Column(name="ua_username", type="string", length=25, unique=true)
+     */
+    private $username;
+
+    /**
      * @Assert\NotBlank()
      * @ORM\Column(name="ua_password", type="string", length=64, unique=true)
      */
     private $password;
+
+    /**
+     * @ORM\Column(name="ua_is_active", type="boolean")
+     */
+    private $isActive;
 
     /**
      * Get id
@@ -46,6 +68,52 @@ class UserAuth implements UserInterface, \Serializable
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set auFirstName
+     *
+     * @param  string   $auFirstName
+     * @return UserAuth
+     */
+    public function setAuFirstName($auFirstName)
+    {
+        $this->auFirstName = $auFirstName;
+
+        return $this;
+    }
+
+    /**
+     * Get auFirstName
+     *
+     * @return string
+     */
+    public function getAuFirstName()
+    {
+        return $this->auFirstName;
+    }
+
+    /**
+     * Set auLastName
+     *
+     * @param  string   $auLastName
+     * @return UserAuth
+     */
+    public function setAuLastName($auLastName)
+    {
+        $this->auLastName = $auLastName;
+
+        return $this;
+    }
+
+    /**
+     * Get auLastName
+     *
+     * @return string
+     */
+    public function getAuLastName()
+    {
+        return $this->auLastName;
     }
 
     /**
@@ -71,9 +139,27 @@ class UserAuth implements UserInterface, \Serializable
         return $this->auEmailAddress;
     }
 
+    /**
+     * Set auUsername
+     *
+     * @param  string   $auUsername
+     * @return UserAuth
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get auUsername
+     *
+     * @return string
+     */
     public function getUsername()
     {
-        return $this->auEmailAddress;
+        return $this->username;
     }
 
     /**
@@ -99,6 +185,29 @@ class UserAuth implements UserInterface, \Serializable
         return $this->password;
     }
 
+    /**
+     * Set isActive
+     *
+     * @param  boolean  $isActive
+     * @return UserAuth
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
     public function getRoles()
     {
         return array('ROLE_USER');
@@ -117,8 +226,11 @@ class UserAuth implements UserInterface, \Serializable
     {
         return serialize(array(
             $this->id,
-            $this->auEmailAddress,
+            $this->auFirstName,
+            $this->auLastName,
+            $this->username,
             $this->password,
+            $this->isActive
         ));
     }
 
@@ -126,8 +238,11 @@ class UserAuth implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->auEmailAddress,
+            $this->auFirstName,
+            $this->auLastName,
+            $this->username,
             $this->password,
+            $this->isActive
         ) = unserialize($serialized);
     }
 

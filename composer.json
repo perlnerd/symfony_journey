@@ -19,8 +19,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "symfony/console": "~2.7",
-        "ircmaxell/password-compat": "~1.0",
-        "symfony/polyfill-php70": "^1.2"
+        "ircmaxell/password-compat": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
