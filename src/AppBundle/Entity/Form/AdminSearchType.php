@@ -9,6 +9,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class AdminSearchType extends AbstractType
 {
 
+    /**
+     * THe form for a user search
+     * @param  FormBuilderInterface $builder
+     * @param  array                $options
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('email', 'email', array('label' => ' ' , 'mapped'=> false))

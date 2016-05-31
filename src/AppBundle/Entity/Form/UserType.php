@@ -9,6 +9,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserType extends AbstractType
 {
 
+    /**
+     * The user registration form
+     * @param  FormBuilderInterface $builder
+     * @param  array                $options
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('auEmailAddress', 'email', array('label' => 'Email Address'))

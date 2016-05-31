@@ -11,6 +11,10 @@ class SessionHelper
     private $session;
     private $logger;
 
+    /**
+     * Initiate a symfony session.
+     * @return Object SessionHelper
+     */
     public function startSession()
     {
         $this->session = new Session(new PhpBridgeSessionStorage());
@@ -19,6 +23,10 @@ class SessionHelper
         return $this;
     }
 
+    /**
+     * Create a random ID for use when tracking a non registered user
+     * @return string  anonymous ID
+     */
     public function generateAnonId()
     {
         $random     = random_bytes(10);
@@ -27,6 +35,10 @@ class SessionHelper
         return $anonUserId;
     }
 
+    /**
+     * If anonymous_id is already set in the session, do nothing.  Otherwise create an anonymous_id in the session
+     * @return Object SessionHelper
+     */
     public function configureAnonId()
     {
         if (! $this->session->get('anonymous_id')) {

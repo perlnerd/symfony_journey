@@ -119,6 +119,12 @@ class JourneyLogger
         return 0;
     }
 
+    /**
+     * Once a user converts and registers, their previous anonymous journey entries are updated with the new user id.
+     * @param  integer $userId new user id
+     * @param  string $anonId  anonymous ID used before registration
+     * @return int             Number of records updated
+     */
     public function convertAnonToRegisteredUsers($userId, $anonId)
     {
         $q = $this->em

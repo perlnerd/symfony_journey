@@ -46,7 +46,9 @@ What's it do?
 What doesn't it do?
 -------------------
 
-  * Confirm registrations via email, strict form validations, much beyond jumping from page to page and logging the jumps.
+  * Confirm registrations via email, strict form validations, handle queries that return 0 results, much beyond jumping from page to page and logging the jumps.
+
+  * All of these things would be added to real applications, of course.
 
   Have fun!
   

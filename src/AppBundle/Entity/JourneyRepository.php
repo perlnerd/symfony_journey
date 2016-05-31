@@ -28,6 +28,11 @@ class JourneyRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
+    /**
+     * Perform a query to fetch a user's journey by email address.
+     * @param  string $email user's email address
+     * @return array         query result
+     */
     public function fetchReportByEmail($email)
     {
         $rsm = new ResultSetMapping;

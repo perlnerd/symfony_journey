@@ -38,7 +38,7 @@ class DefaultController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $email = $form->get('email')->getData();
+            $email         = $form->get('email')->getData();
             $resultList    = $this->eventHelper->fetchReportByEmail($email);
             $eventTypeList = $this->eventHelper->getValidEventTypeList();
 
@@ -201,6 +201,10 @@ class DefaultController extends Controller
         return $this;
     }
 
+    /**
+     * check if a user is fully authenticated
+     * @return void
+     */
     private function checkAuth()
     {
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
